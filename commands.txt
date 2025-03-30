@@ -1,0 +1,3 @@
+graphrag index --root ./ragtest --method covariates_only
+
+graphrag index --root ./ragtest

@@ -27,6 +27,9 @@ from .create_final_text_units import (
 from .extract_covariates import (
     run_workflow as run_extract_covariates,
 )
+from .covariate_extraction_only import (
+    run_workflow as run_covariate_extraction_only,
+)
 from .extract_graph import (
     run_workflow as run_extract_graph,
 )
@@ -50,6 +53,7 @@ PipelineFactory.register_all({
     "create_community_reports_text": run_create_community_reports_text,
     "create_community_reports": run_create_community_reports,
     "extract_covariates": run_extract_covariates,
+    "covariate_extraction_only": run_covariate_extraction_only,
     "create_final_documents": run_create_final_documents,
     "create_final_text_units": run_create_final_text_units,
     "extract_graph_nlp": run_extract_graph_nlp,

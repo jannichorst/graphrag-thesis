@@ -38,7 +38,25 @@ This package requires SpaCy models to function correctly. If the required model 
 
 You can install it manually by running `python -m spacy download <model_name>`, for example `python -m spacy download en_core_web_md`.
 
+## CovariatesOnly
+
+This is a specialized indexing method that only performs covariate extraction, assuming that text units already exist in storage. This is useful when you:
+
+- Have already run a different indexing method previously
+- Have prepared text units from external sources
+- Want to extract covariates (claims) from existing data without reprocessing the entire pipeline
+
+This method skips all graph construction, summarization, and community generation steps, focusing exclusively on extracting covariates from text units.
+
+`graphrag index --method covariates_only`
+
+For this method to work, text units must be available in storage with the expected schema. You can prepare these using:
+1. A previous GraphRAG indexing run
+2. The `skip_to_covariates` workflow function (to load data from CSV)
+3. Any custom workflow that prepares and loads text units into storage
 
 ## Choosing a Method
 
 Standard GraphRAG provides a rich description of real-world entities and relationships, but is more expensive that FastGraphRAG. We estimate graph extraction to constitute roughly 75% of indexing cost. FastGraphRAG is therefore much cheaper, but the tradeoff is that the extracted graph is less directly relevant for use outside of GraphRAG, and the graph tends to be quite a bit noisier. If high fidelity entities and graph exploration are important to your use case, we recommend staying with traditional GraphRAG. If your use case is primarily aimed at summary questions using global search, FastGraphRAG is a reasonable and cheaper alternative.
+
+The CovariatesOnly method is appropriate when you specifically need to extract claims/covariates and already have prepared text units available.

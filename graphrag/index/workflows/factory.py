@@ -67,3 +67,7 @@ def _get_workflows_list(
                 "create_community_reports_text",
                 "generate_text_embeddings",
             ]
+        case IndexingMethod.CovariatesOnly:
+            return [
+                "covariate_extraction_only",
+            ]
