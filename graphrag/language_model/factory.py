@@ -11,6 +11,7 @@ from graphrag.language_model.protocol import ChatModel, EmbeddingModel
 from graphrag.language_model.providers.fnllm.models import (
     AzureOpenAIChatFNLLM,
     AzureOpenAIEmbeddingFNLLM,
+    OllamaChatFNLLM,
     OpenAIChatFNLLM,
     OpenAIEmbeddingFNLLM,
 )
@@ -104,6 +105,9 @@ ModelFactory.register_chat(
 )
 ModelFactory.register_chat(
     ModelType.OpenAIChat, lambda **kwargs: OpenAIChatFNLLM(**kwargs)
+)
+ModelFactory.register_chat(
+    ModelType.OllamaChat, lambda **kwargs: OllamaChatFNLLM(**kwargs)
 )
 
 ModelFactory.register_embedding(
