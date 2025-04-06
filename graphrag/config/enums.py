@@ -168,6 +168,8 @@ class IndexingMethod(str, Enum):
     """Fast indexing, using NLP for graph construction and language model for summarization."""
     CovariatesOnly = "covariates_only"
     """Only performs covariate extraction, assuming text_units are already available."""
+    EntityExtractOnly = "entity_extract_only"
+    """Only performs entity extraction, assuming text_units are already available."""
 
 
 class NounPhraseExtractorType(str, Enum):

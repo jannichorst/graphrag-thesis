@@ -71,3 +71,7 @@ def _get_workflows_list(
             return [
                 "covariate_extraction_only",
             ]
+        case IndexingMethod.EntityExtractOnly:
+            return [
+                "entity_extraction_only",
+            ]
